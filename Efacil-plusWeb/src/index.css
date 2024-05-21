@@ -1,4 +1,24 @@
+/* index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Adiciona estilos específicos para o modo claro */
+.bg-primary-light {
+  background-color: theme('colors.primary.light');
+}
+
+.text-secondary-light {
+  color: theme('colors.secondary.light');
+}
+
+/* Adiciona estilos específicos para o modo escuro */
+.dark .bg-primary-dark {
+  background-color: theme('colors.primary.dark');
+}
+
+.dark .text-secondary-dark {
+  color: theme('colors.secondary.dark');
+}
+
 
