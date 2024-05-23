@@ -1,4 +1,4 @@
-const contacts = () => {
+const Team = () => {
 
     return (
     
@@ -11,4 +11,4 @@ const contacts = () => {
     );
      };
     
-     export default contacts;
+     export default Team;

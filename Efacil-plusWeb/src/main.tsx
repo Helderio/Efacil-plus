@@ -1,9 +1,17 @@
-import { createRoot } from 'react-dom';
+import { render } from 'react-dom';
 import './index.css';
 import { useState } from 'react';
+import MainPage from './mainpage'; // Importe o componente da página inicial do seu aplicativo
 
 function App() {
-return ();
+  const [currentPage] = useState(<MainPage />); // Defina a página inicial como estado inicial
+  return (
+    <div>
+      {/* Renderize a página atual */}
+      {currentPage}
+    </div>
+  );
 }
-createRoot(document.getElementById('root')).render(<App />);
+
+render(<App />, document.getElementById('root'));
 

@@ -1,4 +1,4 @@
-const services = () => {
+const Contacts = () => {
 
     return (
     
@@ -11,4 +11,4 @@ const services = () => {
     );
      };
     
-     export default services;
+     export default Contacts;

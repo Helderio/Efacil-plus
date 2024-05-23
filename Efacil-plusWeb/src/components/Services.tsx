@@ -1,4 +1,4 @@
-const team = () => {
+const Services = () => {
 
     return (
     
@@ -11,4 +11,4 @@ const team = () => {
     );
      };
     
-     export default team;
+     export default Services;
