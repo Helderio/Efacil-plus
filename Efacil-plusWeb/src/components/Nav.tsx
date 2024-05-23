@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import About from './About';
-import Services from './Services';
-import Contact from './Contact';
-import Team from './Team';
+import About from './pages/About';
+import Services from './pages/Services';
+import Contact from './pages/Contact';
+import Team from './pages/Team';
 
 const Header: React.FC = () => {
   const [currentComponent, setCurrentComponent] = useState<number | null>(null);
