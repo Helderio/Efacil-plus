@@ -7,7 +7,7 @@ import Team from './pages/Team'; // Importing the Team component
 interface BodyProps {
   currentComponent: number | null;
   isDarkMode: boolean;
-setCurrentComponent: React.Dispatch<React.SetStateAction<number | null>>;
+  setCurrentComponent: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 const Body: React.FC<BodyProps> = ({ currentComponent, isDarkMode, setCurrentComponent }) => {
