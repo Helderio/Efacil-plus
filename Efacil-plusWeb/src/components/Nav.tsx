@@ -1,31 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import About from './pages/About';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import Team from './pages/Team';
 
-const Header: React.FC = () => {
-  const [currentComponent, setCurrentComponent] = useState<number | null>(null);
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+interface HeaderProps {
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
+  setCurrentComponent: React.Dispatch<React.SetStateAction<number | null>>;
+}
 
-  const renderComponent = (componentId: number) => {
-    switch (componentId) {
-      case 1:
-        return <About />;
-      case 2:
-        return <Services />;
-      case 3:
-        return <Contact />;
-      case 4:
-        return <Team />;
-      default:
-        return null;
-    }
-  };
+const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode, setCurrentComponent }) => {
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(prevMode => !prevMode);
+  const handleNavigationClick = (componentId: number) => {
+    setCurrentComponent(componentId);
   };
 
   return (
@@ -38,16 +23,16 @@ const Header: React.FC = () => {
         <nav>
           <ul className="flex">
             <li className="mr-6">
-              <button className={isDarkMode ? "text-contrast-dark" : "text-contrast-light"} onClick={() => setCurrentComponent(1)}>About</button>
+              <button className={isDarkMode ? "text-contrast-dark" : "text-contrast-light"} onClick={() => handleNavigationClick(1)}>Sobre nos</button>
             </li>
             <li className="mr-6">
-              <button className={isDarkMode ? "text-contrast-dark" : "text-contrast-light"} onClick={() => setCurrentComponent(2)}>Services</button>
+              <button className={isDarkMode ? "text-contrast-dark" : "text-contrast-light"} onClick={() => handleNavigationClick(2)}>Servicos</button>
             </li>
             <li className="mr-6">
-              <button className={isDarkMode ? "text-contrast-dark" : "text-contrast-light"} onClick={() => setCurrentComponent(3)}>Contact</button>
+              <button className={isDarkMode ? "text-contrast-dark" : "text-contrast-light"} onClick={() => handleNavigationClick(3)}>Contactos</button>
             </li>
             <li>
-              <button className={isDarkMode ? "text-contrast-dark" : "text-contrast-light"} onClick={() => setCurrentComponent(4)}>Team</button>
+              <button className={isDarkMode ? "text-contrast-dark" : "text-contrast-light"} onClick={() => handleNavigationClick(4)}>Membros</button>
             </li>
           </ul>
         </nav>
@@ -57,8 +42,6 @@ const Header: React.FC = () => {
           {isDarkMode ? <FaSun /> : <FaMoon />}
         </button>
       </div>
-
-      {currentComponent !== null && renderComponent(currentComponent)}
     </header>
   );
 };

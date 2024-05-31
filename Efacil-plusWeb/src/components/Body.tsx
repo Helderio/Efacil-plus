@@ -10,7 +10,7 @@ interface BodyProps {
   setCurrentComponent: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
-const Body: React.FC<BodyProps> = ({ currentComponent, isDarkMode, setCurrentComponent }) => {
+const Body: React.FC<BodyProps> = ({ currentComponent, isDarkMode }) => {
   const renderComponent = (componentId: number | null) => {
     switch (componentId) {
       case 1:
@@ -37,3 +37,4 @@ const Body: React.FC<BodyProps> = ({ currentComponent, isDarkMode, setCurrentCom
 };
 
 export default Body;
+

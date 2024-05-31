@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
-import Header from './components/Nav'; // Import the Header component
+import Header from './components/Nav';
 import Body from './components/Body';
 
-const MainPage: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }) => {
+const MainPage: React.FC = () => {
   const [currentComponent, setCurrentComponent] = useState<number | null>(null);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(prevMode => !prevMode);
+  };
 
   return (
     <div className={isDarkMode ? "bg-primary-dark text-contrast-dark" : "bg-primary-light text-contrast-light"}>
-      {/* Render the Header */}
-      <Header />
-
-      {/* Main content */}
-      <div className="container mx-auto px-4 mt-8"> {/* Add margin-top for separation */}
-        {/* Render the corresponding component */}
-        {/* Add the content of About, Services, Contact, and Team here, depending on the rendering logic */}
-        <Body currentComponent={currentComponent} isDarkMode={isDarkMode} setCurrentComponent={setCurrentComponent} />
-      </div>
+      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <Body currentComponent={currentComponent} setCurrentComponent={setCurrentComponent} isDarkMode={isDarkMode} />
     </div>
   );
 };
 
 export default MainPage;
-
-
-
